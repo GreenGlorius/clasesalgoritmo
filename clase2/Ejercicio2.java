@@ -9,7 +9,7 @@ c. resultado convertido a entero
 public class Ejercicio2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Escribe un número entero y uno decimal:");
+        System.out.println("Escribe un número entero y uno decimal usando el formato x,x no x.x:");
         int A = sc.nextInt();
         double B = sc.nextDouble();
 
@@ -20,5 +20,6 @@ public class Ejercicio2 {
         int divisionInt = (int) division;
 
         System.out.println("La suma da: " + suma + " la division da: " + division + " Suma en entero / division en entero: " + sumaInt + "|" + divisionInt);
+        sc.close();
     }
 }
