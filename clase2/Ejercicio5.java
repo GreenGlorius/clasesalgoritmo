@@ -24,7 +24,6 @@ public class Ejercicio5 {
                 break;
             case "/":
                 if(B != 0){
-                    resultado = (double) resultado;
                     resultado = (double) A / B;
                 } else {
                     System.out.println("no se puede dividir por 0");
