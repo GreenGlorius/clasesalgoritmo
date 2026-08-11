@@ -12,5 +12,6 @@ public class Ejercicio1 {
 		int resta = A - B;
 		int multiplicacion = A * B;
 		System.out.println("La suma de A + B da: " + suma + "|" + " Su resta es: " + resta + "|" + " Si los multiplico da: " + multiplicacion);
+        sc.close();
     }
 }
