@@ -33,13 +33,14 @@ public class Ejercicio6 {
                     break;
                 case 4:
                     resultado = (double) A / B;
+                    break;
                 default:
                     System.out.println("operacion no encontrada");
                     break;
             }
             System.out.println("resultado: " + resultado);
         }
-
+        sc.close();
     }
     
 }
