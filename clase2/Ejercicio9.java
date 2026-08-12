@@ -9,8 +9,15 @@ public class Ejercicio9 {
         int cantidad = sc.nextInt();
         int[] numeros = new int[cantidad];
         for(int i = cantidad ; i > 0; i--){
-            System.out.println("le quedan por ingresar " + cantidad + "numeros");
-            numeros[i] = sc.nextInt();
+            System.out.println("le quedan por ingresar " + i + " numeros");
+            numeros[i-1] = sc.nextInt();
         }
+        int suma = 0;
+        for (int i = 0; i < cantidad; i++){
+            suma = suma + numeros[i];
+        }
+        double promedio = suma/cantidad;
+        System.out.println("el promedio es: " + promedio);
+        sc.close();
     }
 }
