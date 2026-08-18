@@ -56,11 +56,26 @@ public class Bertellotti_Ian_CajeroATM{
                         int deposito = sc.nextInt();
                         if(deposito > 0){
                             saldo[cuentaActual] = saldo[cuentaActual] + deposito;
+                            System.out.println("el deposito se hizo correctamente. Nuevo saldo: $" + saldo[cuentaActual]);
                         }else{
                             System.out.println("monto invalido, no se pueden ingresar montos negativos o nulos");
                         }
                         break;
                     case 3:
+                        System.out.println("cuanto desea retirar?");
+                        int retiro = sc.nextInt();
+                        if(retiro > 2000){
+                            System.out.println("el sistema no permite retiros mayores a 2000");
+                            break;
+                        }
+                        if(retiro < 0){
+                            System.out.println("no puede retirar monton negativos o nulos");
+                            break;
+                        }
+                        if(retiro > 0 && retiro <= 2000){
+                            saldo[cuentaActual] = saldo[cuentaActual] - retiro;
+                        }
+                        System.out.println("El retiro se hizo correctamente. nuevo saldo: $"+ saldo[cuentaActual]);
                         break;
                     case 4:
                         break;
@@ -68,7 +83,7 @@ public class Bertellotti_Ian_CajeroATM{
                         System.out.println("========== RESUMEN DE SESIÓN ==========");
                         System.out.println("Titular: " + usuarios[cuentaActual]);
                         System.out.println("Saldo Final: $" + saldo[cuentaActual]);
-                        System.out.println("Gracuas por usar mi cajero virtual");
+                        System.out.println("Gracias por usar mi cajero virtual");
                         break programa;
                     default:
                         System.out.println("operacion no valida");
