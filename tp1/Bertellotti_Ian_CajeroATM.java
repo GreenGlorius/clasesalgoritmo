@@ -52,6 +52,13 @@ public class Bertellotti_Ian_CajeroATM{
                         sc.next();
                         break;
                     case 2:
+                        System.out.println("cuanto desea depositar? Escriba el monto: ");
+                        int deposito = sc.nextInt();
+                        if(deposito > 0){
+                            saldo[cuentaActual] = saldo[cuentaActual] + deposito;
+                        }else{
+                            System.out.println("monto invalido, no se pueden ingresar montos negativos o nulos");
+                        }
                         break;
                     case 3:
                         break;
@@ -69,5 +76,6 @@ public class Bertellotti_Ian_CajeroATM{
                 }
             }
         }
+    sc.close();
     }
 }
