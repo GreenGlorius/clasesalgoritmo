@@ -34,5 +34,6 @@ public class Ejercicio27 {
                 }
             }
         }
+        sc.close();
     }
 }
