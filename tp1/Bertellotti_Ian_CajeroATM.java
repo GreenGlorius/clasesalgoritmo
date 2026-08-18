@@ -64,6 +64,10 @@ public class Bertellotti_Ian_CajeroATM{
                     case 3:
                         System.out.println("cuanto desea retirar?");
                         int retiro = sc.nextInt();
+                        if(retiro > saldo[cuentaActual]){
+                            System.out.println("no puede retirar un monto mayor a su saldo");
+                            break;
+                        }
                         if(retiro > 2000){
                             System.out.println("el sistema no permite retiros mayores a 2000");
                             break;
@@ -72,12 +76,32 @@ public class Bertellotti_Ian_CajeroATM{
                             System.out.println("no puede retirar monton negativos o nulos");
                             break;
                         }
-                        if(retiro > 0 && retiro <= 2000){
+                        if(retiro > 0 && retiro <= 2000 && retiro < saldo[cuentaActual]){
                             saldo[cuentaActual] = saldo[cuentaActual] - retiro;
                         }
                         System.out.println("El retiro se hizo correctamente. nuevo saldo: $"+ saldo[cuentaActual]);
                         break;
                     case 4:
+                        System.out.println("ingrese la cuenta a la que desea transferirle: ");
+                        int cuentaTransferir = sc.nextInt();
+                        for(int i = 0; i < cuentas.length; i++){
+                            if(cuentaTransferir == cuentas[i]){
+                                System.out.println("cuanto desea transferirle a " + usuarios[cuentaTransferir]);
+                                int transferencia = sc.nextInt();
+                                if(transferencia > 0 && transferencia < saldo[cuentaActual]){
+                                    saldo[cuentaTransferir] = saldo[cuentaTransferir] + transferencia;
+                                    saldo[cuentaActual] = saldo[cuentaActual] - transferencia;
+                                    System.out.println("transferencia exitosa. Nuevo saldo: $" + saldo[cuentaActual]);
+                                    break;                                   
+                                }else{
+                                    System.out.println("transferencia fallida, saldo no permitido");
+                                }
+                            }
+                            if(i == (cuentas.length - 1)){
+                                System.out.println("numero de cuenta inexistente");
+                            }
+                        }
+                        
                         break;
                     case 5:
                         System.out.println("========== RESUMEN DE SESIÓN ==========");
