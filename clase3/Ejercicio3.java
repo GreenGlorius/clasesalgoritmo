@@ -7,6 +7,7 @@ public class Ejercicio3 {
     public static void main (String[] args){
         int a = 0, e = 0, i = 0, o = 0, u = 0;
         Scanner sc = new Scanner(System.in);
+        System.out.println("escriba un texto: ");
         String texto = sc.nextLine();
         for(int x = 0; x < texto.length(); x++){
             char letra = texto.charAt(x);
@@ -22,7 +23,7 @@ public class Ejercicio3 {
                 u++;
             }
         }
-        System.out.println("tu texto tiene " + a + " letras A, " + e + " letras B, " + i + " letras I, " + o + " letras O, " + u + " letras U.");
+        System.out.println("tu texto tiene " + a + " letras A, " + e + " letras E, " + i + " letras I, " + o + " letras O, " + u + " letras U.");
         sc.close();
     }
 }
