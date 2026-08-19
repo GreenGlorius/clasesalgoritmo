@@ -27,8 +27,10 @@ public class Bertellotti_Ian_CajeroATM{
                 System.out.println("Ingrese su numero de cuenta: ");
                 int cuentaIngresada = sc.nextInt();
                 //for para recorrer las cuentas buscando si el numero ingresado existe
+                boolean cuentaEncontrada = false;
                 for(int i = 0; i< cuentas.length; i++){
                     if(cuentaIngresada == cuentas[i]){
+                        cuentaEncontrada = true;
                         System.out.println("ingrese su clave;");
                         int claveIngresada = sc.nextInt();
                         //if que verifica que la clave es correcta da el mensaje de acceso consedido, actualiza la cuenta actual a la cuenta ingresada y cierra el while del login
@@ -46,9 +48,10 @@ public class Bertellotti_Ian_CajeroATM{
                             break programa;
                         }
                         break;
-                    }else{
-                        System.out.println("cuenta incorrecta");
                     }
+                }
+                if(!cuentaEncontrada){
+                    System.out.println("cuenta incorrecta");
                 }
             }
             System.out.println("---------------------------------------------------------------------------------------");
@@ -110,9 +113,11 @@ public class Bertellotti_Ian_CajeroATM{
                         System.out.println("ingrese la cuenta a la que desea transferirle: ");
                         int cuentaTransferir = sc.nextInt();
                         //for que recorre el array de cuentas para comprobar si la cuenta a la que va a transferir existe comparando la cuentaTransferir con todas las cuentas del array cuentas[]
+                        boolean cuentaEncontrada = false;
                         for(int i = 0; i < cuentas.length; i++){
                             //cuando encuentra una cuenta con el mismo numero de cuenta que el ingresado procede a la transferencia
                             if(cuentaTransferir == cuentas[i]){
+                                cuentaEncontrada = true;
                                 System.out.println("cuanto desea transferirle a " + usuarios[i]);
                                 double transferencia = sc.nextDouble();
                                 //verifica que el monto a transferir no sea negativo ni 0 y que el saldo de la cuenta no vaya a quedar en negativo
@@ -129,10 +134,10 @@ public class Bertellotti_Ian_CajeroATM{
                                     break;
                                 }
                             }
-                            //mensaje de error que tira si termina de recorrer cuentas[] y no encuentra ninguna con el numero de cuenta ingresado para la transferencia
-                            if(i == (cuentas.length - 1)){
-                                System.out.println("numero de cuenta inexistente");
-                            }
+                        }
+                        //mensaje de error cuando no se encuentra la cuenta destino
+                        if(!cuentaEncontrada){
+                            System.out.println("numero de cuenta inexistente");
                         }
                         break;
                     //caso de que le da a salir, tira el resumen de cuenta con el nombre del titular y el saldo final (saldo despues de todas las modificaciones hechas)
@@ -149,6 +154,19 @@ public class Bertellotti_Ian_CajeroATM{
                         break;
                 }
             }
+        }
+        //Busca e imprime el mayor saldo en cada vuelta sin modificar los saldos reales
+    System.out.println("== REPORTE GENERAL DE CUENTAS ==");
+        double[] saldosPendientes = saldo.clone();
+        for(int i = 0; i < saldosPendientes.length; i++){
+            int posicionMayor = 0;
+            for(int o = 1; o < saldosPendientes.length; o++){
+                if(saldosPendientes[o] > saldosPendientes[posicionMayor]){
+                    posicionMayor = o;
+                }
+            }
+            System.out.println((i + 1) + ". cuenta " + cuentas[posicionMayor] + " - " + usuarios[posicionMayor] + " - saldo: $" + saldosPendientes[posicionMayor]);
+            saldosPendientes[posicionMayor] = Double.NEGATIVE_INFINITY;
         }
     sc.close();
     }
