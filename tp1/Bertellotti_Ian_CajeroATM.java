@@ -155,18 +155,26 @@ public class Bertellotti_Ian_CajeroATM{
                 }
             }
         }
-        //Busca e imprime el mayor saldo en cada vuelta sin modificar los saldos reales
+        //sort improvisado para armar un array con las posiciones ordenadas por saldo y un for para imprimir cada uno
     System.out.println("== REPORTE GENERAL DE CUENTAS ==");
-        double[] saldosPendientes = saldo.clone();
-        for(int i = 0; i < saldosPendientes.length; i++){
-            int posicionMayor = 0;
-            for(int o = 1; o < saldosPendientes.length; o++){
-                if(saldosPendientes[o] > saldosPendientes[posicionMayor]){
+        int[] posicionesOrdenadas = new int[saldo.length];
+        for(int i = 0; i < posicionesOrdenadas.length; i++){
+            posicionesOrdenadas[i] = i;
+        }
+        for(int i = 0; i < posicionesOrdenadas.length - 1; i++){
+            int posicionMayor = i;
+            for(int o = i + 1; o < posicionesOrdenadas.length; o++){
+                if(saldo[posicionesOrdenadas[o]] > saldo[posicionesOrdenadas[posicionMayor]]){
                     posicionMayor = o;
                 }
             }
-            System.out.println((i + 1) + ". cuenta " + cuentas[posicionMayor] + " - " + usuarios[posicionMayor] + " - saldo: $" + saldosPendientes[posicionMayor]);
-            saldosPendientes[posicionMayor] = Double.NEGATIVE_INFINITY;
+            int posicionTemporal = posicionesOrdenadas[i];
+            posicionesOrdenadas[i] = posicionesOrdenadas[posicionMayor];
+            posicionesOrdenadas[posicionMayor] = posicionTemporal;
+        }
+        for(int i = 0; i < posicionesOrdenadas.length; i++){
+            int posicion = posicionesOrdenadas[i];
+            System.out.println((i + 1) + ". cuenta " + cuentas[posicion] + " - " + usuarios[posicion] + " - saldo: $" + saldo[posicion]);
         }
     sc.close();
     }
