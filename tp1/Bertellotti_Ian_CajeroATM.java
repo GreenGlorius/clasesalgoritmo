@@ -155,12 +155,9 @@ public class Bertellotti_Ian_CajeroATM{
                 }
             }
         }
-        //sort improvisado para armar un array con las posiciones ordenadas por saldo y un for para imprimir cada uno
+//sort improvisado para armar un array con las posiciones ordenadas por saldo y un for para imprimir cada uno
     System.out.println("== REPORTE GENERAL DE CUENTAS ==");
-        int[] posicionesOrdenadas = new int[saldo.length];
-        for(int i = 0; i < posicionesOrdenadas.length; i++){
-            posicionesOrdenadas[i] = i;
-        }
+        int[] posicionesOrdenadas = {0,1,2,3,4};
         for(int i = 0; i < posicionesOrdenadas.length - 1; i++){
             int posicionMayor = i;
             for(int o = i + 1; o < posicionesOrdenadas.length; o++){
