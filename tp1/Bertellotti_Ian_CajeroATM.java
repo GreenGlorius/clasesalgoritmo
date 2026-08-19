@@ -15,14 +15,23 @@ public class Bertellotti_Ian_CajeroATM{
             /*inicio el contador acá para que al repetir el programa para la siguiente cuenta vuelva a valer 3 los intentos por si antes se gastó alguno
             tambien creo una variable para saber en que cuenta estas en el momento luego del login*/
             int contadorIntentosClave = 3;
-            int cuentaActual;
+            int cuentaActual = -1;
             // logica del logeo con el contador de intentos y verificacion de cuenta
             login: while(true){
-                System.out.println("si quiere ingresar ponga cualquier numero o un 1 para salir del programa");
-                int continuar = sc.nextInt();
-                //if para terminar el codigo
-                if(continuar == 1){
-                    break programa;
+                prelogin: while(true){
+                    System.out.println("1. continuar al loggin");
+                    System.out.println("2. reporte y salir");
+                    System.out.println("ingrese el numero de opcion con la que quiere continuar");
+                    int eleccion = sc.nextInt();
+                    //if para terminar el codigo
+                    if(eleccion == 2){
+                        break programa;
+                    }else if(eleccion != 1){
+                        System.out.println("opcion no valida");
+                        System.out.println("--------------------------------------------------------------------------------------");
+                    }else if(eleccion == 1){
+                        break prelogin;
+                    }
                 }
                 System.out.println("Ingrese su numero de cuenta: ");
                 int cuentaIngresada = sc.nextInt();
@@ -53,6 +62,7 @@ public class Bertellotti_Ian_CajeroATM{
                 if(!cuentaEncontrada){
                     System.out.println("cuenta incorrecta");
                 }
+            
             }
             System.out.println("---------------------------------------------------------------------------------------");
             //while que agrega el menú con toda su logica y que al terminar vuelve al login para poder entrar con otra cuenta o salir
