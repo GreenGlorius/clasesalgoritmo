@@ -45,6 +45,7 @@ public class Bertellotti_Ian_CajeroATM{
                             System.out.println("demasiados intentos de clave session cerrada");
                             break programa;
                         }
+                        break;
                     }else{
                         System.out.println("cuenta incorrecta");
                     }
@@ -95,14 +96,12 @@ public class Bertellotti_Ian_CajeroATM{
                             System.out.println("el sistema no permite retiros mayores a 2000");
                             break;
                         }
-                        if(retiro < 0){
+                        if(retiro <= 0){
                             System.out.println("no puede retirar monton negativos o nulos");
                             break;
                         }
-                        //verificacion por si se pasa cualquier cosa y permite el correcto retiro restando el valor al saldo de la cuenta
-                        if(retiro > 0 && retiro <= 2000 && retiro < saldo[cuentaActual]){
-                            saldo[cuentaActual] = saldo[cuentaActual] - retiro;
-                        }
+                        //resta el valor del retiro al saldo de la cuenta
+                        saldo[cuentaActual] = saldo[cuentaActual] - retiro;
                         //imprime el mensaje de retiro bien hecho y el saldo actual
                         System.out.println("El retiro se hizo correctamente. nuevo saldo: $"+ saldo[cuentaActual]);
                         break;
@@ -114,12 +113,12 @@ public class Bertellotti_Ian_CajeroATM{
                         for(int i = 0; i < cuentas.length; i++){
                             //cuando encuentra una cuenta con el mismo numero de cuenta que el ingresado procede a la transferencia
                             if(cuentaTransferir == cuentas[i]){
-                                System.out.println("cuanto desea transferirle a " + usuarios[cuentaTransferir]);
+                                System.out.println("cuanto desea transferirle a " + usuarios[i]);
                                 int transferencia = sc.nextInt();
                                 //verifica que el monto a transferir no sea negativo ni 0 y que el saldo de la cuenta no vaya a quedar en negativo
-                                if(transferencia > 0 && transferencia < saldo[cuentaActual]){
+                                if(transferencia > 0 && transferencia <= saldo[cuentaActual]){
                                     //suma el monto a la cuenta a la que le transfiere
-                                    saldo[cuentaTransferir] = saldo[cuentaTransferir] + transferencia;
+                                    saldo[i] = saldo[i] + transferencia;
                                     //resta el monto a la cuenta actual
                                     saldo[cuentaActual] = saldo[cuentaActual] - transferencia;
                                     System.out.println("transferencia exitosa. Nuevo saldo: $" + saldo[cuentaActual]);
