@@ -16,8 +16,8 @@ public class Bertellotti_Ian_CajeroATM{
             tambien creo una variable para saber en que cuenta estas en el momento luego del login*/
             int contadorIntentosClave = 3;
             int cuentaActual = -1;
-            // logica del logeo con el contador de intentos y verificacion de cuenta
             login: while(true){
+                //prelogin para poder usar varias cuentas antes de que tire el reporte general y asi poder hacer cambios en varias cuentas
                 prelogin: while(true){
                     System.out.println("1. continuar al loggin");
                     System.out.println("2. reporte y salir");
@@ -33,6 +33,7 @@ public class Bertellotti_Ian_CajeroATM{
                         break prelogin;
                     }
                 }
+                //logica del logeo con el contador de intentos y verificacion de cuenta
                 System.out.println("Ingrese su numero de cuenta: ");
                 int cuentaIngresada = sc.nextInt();
                 //for para recorrer las cuentas buscando si el numero ingresado existe
