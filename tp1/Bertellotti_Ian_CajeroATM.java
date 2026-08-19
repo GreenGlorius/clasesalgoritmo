@@ -9,7 +9,7 @@ public class Bertellotti_Ian_CajeroATM{
         String[] usuarios = {"Ian Bertellotti", "Barbara Trinidad", "Alessandra Silva", "Maria Mercedez", "Nicolas Giqueaux"};
         int[] cuentas = {1001, 1002, 1003, 1004, 1005};
         int[] claves = {1000, 2000, 3000, 4000, 5000};
-        int[] saldo = {7000, 5000, 6000, 9000, 8000};
+        double[] saldo = {7000, 5000, 6000, 9000, 8000};
         /*while para todo el programa para poder ingresar con otra cuenta luego de hacer las operaciones con una cuenta (mas que nada para poder corroborar las transferencias) */
         programa: while(true){
             /*inicio el contador acá para que al repetir el programa para la siguiente cuenta vuelva a valer 3 los intentos por si antes se gastó alguno
@@ -72,7 +72,7 @@ public class Bertellotti_Ian_CajeroATM{
                     //caso que permite los depositos
                     case 2:
                         System.out.println("cuanto desea depositar? Escriba el monto: ");
-                        int deposito = sc.nextInt();
+                        double deposito = sc.nextDouble();
                         //verifica que el monto a depositar no sea negativo ni 0
                         if(deposito > 0){
                             //actualiza el valor del deposito y imprime el mensaje con el saldo actual
@@ -86,7 +86,7 @@ public class Bertellotti_Ian_CajeroATM{
                     //caso para retiros
                     case 3:
                         System.out.println("cuanto desea retirar?");
-                        int retiro = sc.nextInt();
+                        double retiro = sc.nextDouble();
                         //3 if para verificar que no se retire montos nulos, ni mayores a 2000. Tambien verifica que el monto no deje el saldo en negativo
                         if(retiro > saldo[cuentaActual]){
                             System.out.println("no puede retirar un monto mayor a su saldo");
@@ -114,7 +114,7 @@ public class Bertellotti_Ian_CajeroATM{
                             //cuando encuentra una cuenta con el mismo numero de cuenta que el ingresado procede a la transferencia
                             if(cuentaTransferir == cuentas[i]){
                                 System.out.println("cuanto desea transferirle a " + usuarios[i]);
-                                int transferencia = sc.nextInt();
+                                double transferencia = sc.nextDouble();
                                 //verifica que el monto a transferir no sea negativo ni 0 y que el saldo de la cuenta no vaya a quedar en negativo
                                 if(transferencia > 0 && transferencia <= saldo[cuentaActual]){
                                     //suma el monto a la cuenta a la que le transfiere
