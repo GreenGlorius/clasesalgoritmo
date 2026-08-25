@@ -6,6 +6,5 @@ b. Cuantas veces aparece.
 c. En qué posiciones aparece */
 public class Ejercicio9 {
     public static void main(String[] args){
-        
     }
 }
