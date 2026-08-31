@@ -1,5 +1,4 @@
 package clase3;
-import java.util.Arrays;
 /*Leer un array de números.  
 a. Indicar cuáles son los valores que aparecen más de una vez. 
 Array: 
