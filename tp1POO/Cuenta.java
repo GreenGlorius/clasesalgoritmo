@@ -32,8 +32,8 @@ public class Cuenta {
         return clave;
     }
 
-    public double consultarSaldo(){
-        return saldo;
+    public void  consultarSaldo(){
+        System.out.println("El saldo es de $" + saldo);
     }
 
     public void depositarDinero(double deposito){
@@ -42,7 +42,8 @@ public class Cuenta {
     public void retirarDinero(double retiro){
         saldo-=retiro;
     }
-    public void transferirDinero(int transferencia){
-
+    public void transferirDinero(int transferencia, Cuenta actual, Cuenta otra){
+        actual.saldo -= transferencia;
+        otra.saldo += transferencia;
     }
 }
