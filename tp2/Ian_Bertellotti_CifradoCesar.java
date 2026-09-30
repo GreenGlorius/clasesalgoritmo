@@ -1,5 +1,10 @@
 package tp2;
 import java.util.Scanner;
+/*Explicacion de porqué array envez de arrayList: El array es estatico y el alfabeto nunca crece o decrece nunca tiene
+más o menos letras entonces seria innecesario hacer un array dinamico porque voy a tener siempre la misma cantidad de datos,
+Tambien podria usar un hashMap para asignar como claves el abecedario normal y ir modificando los valores moviendolos segun el 
+desplazamiento, pero como utilize para los desplazamientos los char que asigna un numero a cada caracter, no necesité usar un clave-valor
+incluso podria no necesitar array pero el ejercicio pedia utilizar uno de estos*/
 public class Ian_Bertellotti_CifradoCesar {
     public static void main(String[] args){
         //uso un array para poder usarlo en los metodos ya que la consigna pedia usar algun tipo de lista
